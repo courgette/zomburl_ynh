@@ -45,7 +45,7 @@ sudo chown root: $nginxconf
 sudo chmod 600 $nginxconf
 
 # Installation Zomburl
-sudo install bundler
+sudo gem install bundler
 sudo bundle install
 
 # Reload Nginx and regenerate SSOwat conf
