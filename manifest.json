@@ -1,0 +1,36 @@
+{
+    "name": "Zomburl",
+    "id": "zomburl",
+    "description": {
+        "en": "An URL shortening service",
+        "fr": "Un service de raccourcisseur d'url"
+    },
+    "developer": {
+        "name": "courgette",
+        "email": "courgette@farcie.fr",
+        "url": "http://courgette.farcie.fr"
+    },
+    "multi_instance": "false",
+    "arguments": {
+        "install" : [
+            {
+                "name": "domain",
+                "ask": {
+                    "en": "Choose a domain for Zomburl",
+                    "fr": "Choisissez un domaine pour Zomburl"
+                },
+                "example": "domain.org"
+            },
+            {
+                "name": "path",
+                "ask": {
+                    "en": "Choose a path for Zomburl",
+                    "fr": "Choisissez un chemin pour Zomburl"
+                },
+                "example": "/zomburl",
+                "default": "/zomburl"
+            }
+
+        ]
+    }
+}
