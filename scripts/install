@@ -49,9 +49,9 @@ sudo chmod 600 $nginxconf
 
 # Installation Zomburl
 sudo apt-get install libmysqlclient-dev
-sudo apt-get install libmhash
 cd $final_path
 sudo gem install bundler
+sudo gem install mhash
 bundle install
 
 # Reload Nginx and regenerate SSOwat conf
