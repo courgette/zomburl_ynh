@@ -73,7 +73,8 @@ sudo apt-get install nginx-extras passenger -y
 
 # Set up passenger in the nginx configuration
 sudo sed -i "s/#passenger_root/passenger_root/" /etc/nginx/nginx.conf
-sed -i "s/#passenger_ruby/passenger_ruby/" /etc/nginx/nginx.conf
+sudo sed -i "s/#passenger_ruby/passenger_ruby/" /etc/nginx/nginx.conf
+sudo sed -i "s/http {/http { passenger_root /usr/lib/ruby/vendor_ruby/phusion_passenger/locations.ini" /etc/nginx/nginx.conf
 
 # Start nginx
 sudo service nginx restart
