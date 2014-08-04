@@ -51,6 +51,8 @@ sudo chmod 600 $nginxconf
 sudo apt-get install libmysqlclient-dev
 sudo apt-get install libmhash-dev
 cd $final_path
+sudo gem install passenger
+passenger-install-nginx-module
 sudo gem install bundler
 bundle install
 
