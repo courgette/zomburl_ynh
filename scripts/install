@@ -48,6 +48,7 @@ sudo chmod 600 $nginxconf
 # Installation Zomburl
 cd $final_path
 sudo gem install bundler
+sudo gem install do_mysql -v '0.10.10'
 bundle install
 
 # Reload Nginx and regenerate SSOwat conf
