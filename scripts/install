@@ -29,6 +29,7 @@ sudo cp -a ../sources/* $final_path
 
 # Change variable in zomburl configuration
 sudo cp ../conf/db.rb $final_path/config/db.rb
+sudo cp ../conf/GemFile $final_path/config/GemFile
 sudo sed -i "s/yunouser/$db_user/g" $final_path/user/config.php
 sudo sed -i "s/yunopass/$db_pwd/g" $final_path/user/config.php
 sudo sed -i "s/yunobase/$db_user/g" $final_path/user/config.php
@@ -47,7 +48,7 @@ sudo chmod 600 $nginxconf
 # Installation Zomburl
 cd $final_path
 sudo gem install bundler
-sudo bundle install
+bundle install
 
 # Reload Nginx and regenerate SSOwat conf
 sudo service nginx reload
