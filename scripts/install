@@ -29,7 +29,7 @@ sudo cp -a ../sources/* $final_path
 
 # Change variable in zomburl configuration
 sudo cp ../conf/db.rb $final_path/config/db.rb
-sudo cp ../conf/Gemfile $final_path/config/Gemfile
+sudo cp ../conf/Gemfile $final_path/Gemfile
 sudo sed -i "s/yunouser/$db_user/g" $final_path/config/db.rb
 sudo sed -i "s/yunopass/$db_pwd/g" $final_path/config/db.rb
 sudo sed -i "s/yunobase/$db_user/g" $final_path/config/db.rb
