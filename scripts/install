@@ -47,6 +47,7 @@ sudo chmod 600 $nginxconf
 
 # Installation Zomburl
 cd $final_path
+sudo apt-get install libmysqlclient-dev
 sudo gem install bundler
 bundle install
 
