@@ -54,14 +54,14 @@ sudo apt-get install libcurl4-openssl-dev -y
 cd $final_path
 
 # Install the PGP key
-gpg --keyserver keyserver.ubuntu.com --recv-keys 561F9B9CAC40B2F7
-gpg --armor --export 561F9B9CAC40B2F7 | apt-key add -
+sudo gpg --keyserver keyserver.ubuntu.com --recv-keys 561F9B9CAC40B2F7
+sudo gpg --armor --export 561F9B9CAC40B2F7 | apt-key add -
 
 # Install https support for apt
 sudo apt-get install apt-transport-https -y
 
 # Add the passenger apt repository
-sudo echo "deb https://oss-binaries.phusionpassenger.com/apt/passenger raring main" > /etc/apt/sources.list.d/passenger.list
+echo "deb https://oss-binaries.phusionpassenger.com/apt/passenger raring main" | sudo tee --append /etc/apt/sources.list.d/passenger.list
 sudo chown root: /etc/apt/sources.list.d/passenger.list
 sudo chmod 600 /etc/apt/sources.list.d/passenger.list
 
