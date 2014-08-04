@@ -48,12 +48,21 @@ sudo chmod 600 $nginxconf
 
 
 # Installation Zomburl
-sudo apt-get install libmysqlclient-dev
-sudo apt-get install libmhash-dev
-sudo apt-get install libcurl4-openssl-dev
+sudo apt-get install libmysqlclient-dev -y
+sudo apt-get install libmhash-dev -y
+sudo apt-get install libcurl4-openssl-dev -y
 cd $final_path
 sudo gem install passenger
-sudo passenger-install-nginx-module
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 561F9B9CAC40B2F7
+sudo apt-get install apt-transport-https ca-certificates -y
+sudo cp ../conf/passenger.list /etc/apt/sources.list.d/passenger.list
+sudo chown root: /etc/apt/sources.list.d/passenger.list
+sudo chmod 600 /etc/apt/sources.list.d/passenger.list
+sudo apt-get update
+sudo apt-get install nginx-extras passenger -y
+sudo sed -i "s/#passenger_root/passenger_root/g" /etc/nginx/nginx.conf
+sudo sed -i "s/#passenger_ruby/passenger_ruby/g" /etc/nginx/nginx.conf
+sudo service nginx restart
 sudo gem install bundler
 bundle install
 
