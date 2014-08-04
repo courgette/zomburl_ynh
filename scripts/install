@@ -45,7 +45,10 @@ sudo cp ../conf/nginx.conf $nginxconf
 sudo chown root: $nginxconf
 sudo chmod 600 $nginxconf
 
+
+
 # Installation Zomburl
+sudo apt-get install libmysqlclient-dev
 cd $final_path
 sudo gem install bundler
 sudo gem install do_mysql
