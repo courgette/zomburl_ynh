@@ -45,7 +45,7 @@ sudo chown root: $nginxconf
 sudo chmod 600 $nginxconf
 
 # Installation Zomburl
-sudo cd $final_path
+cd $final_path
 sudo gem install bundler
 sudo bundle install
 
