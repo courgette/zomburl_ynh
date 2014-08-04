@@ -3,19 +3,11 @@
 # Retrieve arguments
 domain=$1
 path=$2
-admin_user=$3
 
 # Check domain/path availability
 sudo yunohost app checkurl $domain$path -a zomburl
 if [[ ! $? -eq 0 ]]; then
 exit 1
-fi
-
-# Check that admin user is an existing account
-sudo yunohost user list --json | grep -q "\"username\": \"$admin_user\""
-if [[ ! $? -eq 0 ]]; then
-    echo "Error : the chosen admin user does not exist"
-    exit 1
 fi
 
 # Generate random password
