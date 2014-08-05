@@ -30,9 +30,13 @@ sudo cp -a ../sources/* $final_path
 # Change variable in zomburl configuration
 sudo cp ../conf/db.rb $final_path/config/db.rb
 sudo cp ../conf/Gemfile $final_path/Gemfile
+sudo cp ../conf/app.rb $final_path/config/app.rb
 sudo sed -i "s/yunouser/$db_user/g" $final_path/config/db.rb
 sudo sed -i "s/yunopass/$db_pwd/g" $final_path/config/db.rb
 sudo sed -i "s/yunobase/$db_user/g" $final_path/config/db.rb
+
+sudo sed -i "s/yunobase/$db_user/g" $final_path/config/app.rb
+sudo sed -i "s/yunodomain/$domain/g" $final_path/config/app.rb
 
 # Set permissions
 sudo chown -R www-data: $final_path
@@ -44,8 +48,6 @@ nginxconf=/etc/nginx/conf.d/$domain.d/zomburl.conf
 sudo cp ../conf/nginx.conf $nginxconf
 sudo chown root: $nginxconf
 sudo chmod 600 $nginxconf
-
-
 
 # Dependance Zomburl
 sudo apt-get install libmysqlclient-dev -y
@@ -84,7 +86,7 @@ bundle install
 
 # Reload Nginx and regenerate SSOwat conf
 sudo service nginx reload
-sudo yunohost app setting zomburl unprotected_uris -v "/"
+#sudo yunohost app setting zomburl unprotected_uris -v "/"
 sudo yunohost app ssowatconf
 
 
